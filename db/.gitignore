@@ -1,0 +1,7 @@
+### We want to ignore all of the data in this directory, but not the directory itself.
+
+# Ignore all files in this directory
+*
+
+# Except this file
+!.gitignore
