@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const mongo = require('./mongo');
 
 // We need to use bodyParser to access the body of the request
 app.use(bodyParser.json()); // for parsing application/json
