@@ -8,13 +8,17 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded: query strings
 
 // Handle a GET request (i.e. someone visits the /classroom route)
-app.get('/classroom', (req, res) => {
-  res.send('<h1>What are you doing here?</h1>');
-  mongo.insertProfessor({ name: 'Flitwick', teaches: 'Charms' });
+app.get('/professors', (req, res) => {
+  // To see the results of .find, we have to use .toArray() method.
+  mongo
+    .getProfessor({ name: 'Flitwick' })
+    .toArray(((err, docs) => {
+      res.json(docs);
+    }));
 });
 
 // What happens when PUT request is made
-app.put('/classroom', (req, res) => {
+app.put('/professors', (req, res) => {
   // store the classroom
   // req.body comes from the PUT request
   const newClassroom = {

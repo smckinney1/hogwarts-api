@@ -21,5 +21,8 @@ MongoClient.connect(url, (err, client) => {
 module.exports = {
   insertProfessor: (professor) => {
     db.collection('professors').insertOne(professor);
+  },
+  getProfessor: (query) => {
+    return db.collection('professors').find(query);
   }
 }
