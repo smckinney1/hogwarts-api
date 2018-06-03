@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 // Handle a GET request (i.e. someone visits the /classroom route)
 app.get('/classroom', (req, res) => {
   res.send('<h1>What are you doing here?</h1>');
+  mongo.insertProfessor({ name: 'Flitwick', teaches: 'Charms' });
 });
 
 // What happens when PUT request is made
